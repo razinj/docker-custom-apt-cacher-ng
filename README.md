@@ -1,32 +1,56 @@
 # Custom apt-cacher-ng Docker image
 
-## Code from the blog post hosted on RAZINJ Dev
+Code from the blog post hosted on RAZINJ Dev
 
-**Dockerfile features :**
+Dockerfile features :
 
 - Allow binding of apt-cacher-ng cache directory
 
-- Allow SSL/TLS proxying (pay attention that this will not cache secured traffic because its encrypted)
+- Allow SSL/TLS proxying (_Keep in mind that this will not cache secured traffic because its encrypted_)
 
 ---
-
-## Server setup and client config
 
 ## **Server setup**
 
 ### _Docker_
 
-- Build server image : `docker build -t custom-apt-cacher-ng .`
-- Run a container based on the image built : `docker run -d -p 3142:3142 --name apt-cacher-ng apt-cacher-ng`
-- Check logs (`ctrl + c` to exit) : `docker logs -f apt-cacher-ng`
+- Build server image :
+
+```bash
+docker build -t custom-apt-cacher-ng .
+```
+
+- Run a container based on the image built :
+
+```bash
+docker run -d -p 3142:3142 --name apt-cacher-ng custom-apt-cacher-ng
+```
+
+- Check logs (`ctrl + c` to exit) :
+
+```bash
+docker logs -f apt-cacher-ng
+```
 
 ### _Docker Compose (preferred)_
 
-- Build server image : `docker-compose build`
+- Build server image :
 
-- Run a container based on the image built : `docker-compose up -d`
+```bash
+docker-compose build
+```
 
-- Check logs (`ctrl + c` to exit) : `docker-compose logs -f`
+- Run a container based on the image built :
+
+```bash
+docker-compose up -d
+```
+
+- Check logs (`ctrl + c` to exit) :
+
+```bash
+docker-compose logs -f
+```
 
 ---
 
