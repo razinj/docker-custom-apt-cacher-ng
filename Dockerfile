@@ -1,6 +1,6 @@
 FROM ubuntu:21.04
 
-# Disable watchtower checking
+# Disable watchtower checking (optional)
 LABEL com.centurylinklabs.watchtower.enable="false"
 
 # Expose the cache directory for volume binding
