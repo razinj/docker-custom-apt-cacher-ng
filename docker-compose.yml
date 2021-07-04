@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    image: custom-apt-cacher-ng
+    restart: unless-stopped
+    ports:
+      - 3142:3142
+    volumes:
+      - ./cache:/var/cache/apt-cacher-ng
