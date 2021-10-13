@@ -12,7 +12,7 @@ Dockerfile features :
 
 ## **Server setup**
 
-### _Docker_
+### **Docker**
 
 - Build server image :
 
@@ -32,7 +32,7 @@ docker run -d -p 3142:3142 --name apt-cacher-ng custom-apt-cacher-ng
 docker logs -f apt-cacher-ng
 ```
 
-### _Docker Compose (preferred)_
+### **Docker Compose (preferred)**
 
 - Build server image :
 
