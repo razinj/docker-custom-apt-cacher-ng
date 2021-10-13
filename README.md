@@ -4,9 +4,9 @@ This repository is associated with a blog post, for more details please head to 
 
 Dockerfile features :
 
-- Allow binding of apt-cacher-ng cache directory
+- Allows binding of apt-cacher-ng cache directory with a host directory.
 
-- Allow SSL/TLS proxying (_Keep in mind that this will not cache secured traffic because its encrypted_)
+- Allows SSL/TLS proxying (_Keep in mind that this will not cache secured traffic because its encrypted_).
 
 ---
 
@@ -32,7 +32,7 @@ docker run -d -p 3142:3142 --name apt-cacher-ng custom-apt-cacher-ng
 docker logs -f apt-cacher-ng
 ```
 
-### **Docker Compose (preferred)**
+### **Docker Compose (recommended)**
 
 - Build server image :
 
@@ -46,17 +46,17 @@ docker-compose build
 docker-compose up -d
 ```
 
-- Check logs (`ctrl + c` to exit) :
+- Check logs (use `ctrl + c` to exit) :
 
 ```bash
-docker-compose logs -f
+docker-compose logs -f # Or docker logs -f <docker_container_name>
 ```
 
 ---
 
 ## Client config
 
-- Create/open an empty proxy file
+- Create/Open an empty proxy file
 
 ```bash
 sudo nano /etc/apt/apt.conf.d/01proxy
@@ -66,7 +66,7 @@ sudo nano /etc/apt/apt.conf.d/01proxy
 
 `Acquire::http { Proxy "http://SERVER_IP:3142"; };`
 
-- **Very important** to execute when manipulating apt proxy
+- **Very important** to execute when manipulating APT proxying
 
 ```bash
 sudo apt-get clean
@@ -77,4 +77,4 @@ sudo apt-get clean
 sudo apt-get update
 ```
 
-And voila, You have you own apt-cacher-ng that will proxy all of your machines requests to apt repos
+And voila, You have you own apt-cacher-ng that will proxy all of your machines requests to APT repos.
