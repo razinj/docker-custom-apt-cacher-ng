@@ -6,7 +6,7 @@ Dockerfile features :
 
 - Allows binding of apt-cacher-ng cache directory with a host directory.
 
-- Allows SSL/TLS proxying (_Keep in mind that this will not cache secured traffic because its encrypted_).
+- Allows SSL/TLS proxying _(Keep in mind that this will not cache secured traffic because its encrypted)_.
 
 ---
 
