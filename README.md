@@ -2,7 +2,7 @@
 
 This repository is associated with a blog post, for more details please head to the post [here](https://razinj.dev/build-and-run-apt-cacher-ng-proxy-in-docker).
 
-Dockerfile features :
+**Dockerfile features** :
 
 - Allows binding of apt-cacher-ng cache directory with a host directory.
 
