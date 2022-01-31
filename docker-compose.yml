@@ -4,8 +4,10 @@ services:
   app:
     build: .
     image: custom-apt-cacher-ng
+    container_name: apt-cacher-ng
     restart: unless-stopped
     ports:
-      - 3142:3142
+      # To connect to apt-cacher-ng from outside of local host, change 127.0.0.1 to 0.0.0.0 or whatever interface you want
+      - 127.0.0.1:3142:3142
     volumes:
       - ./cache:/var/cache/apt-cacher-ng
