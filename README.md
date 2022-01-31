@@ -23,7 +23,11 @@ docker build -t custom-apt-cacher-ng .
 - Run a container based on the image built :
 
 ```bash
-docker run -d -p 3142:3142 --name apt-cacher-ng custom-apt-cacher-ng
+docker run -d \
+    -p 127.0.0.1:3142:3142 \
+    -v /path/to/cache:/var/cache/apt-cacher-ng
+    --name apt-cacher-ng \
+    custom-apt-cacher-ng
 ```
 
 - Check logs (`ctrl + c` to exit) :
@@ -49,14 +53,14 @@ docker-compose up -d
 - Check logs (use `ctrl + c` to exit) :
 
 ```bash
-docker-compose logs -f # Or docker logs -f <docker_container_name>
+docker-compose logs -f # Or docker logs -f apt-cacher-ng
 ```
 
 ---
 
 ## Client config
 
-- Create/Open an empty proxy file
+- Create an empty proxy file
 
 ```bash
 sudo nano /etc/apt/apt.conf.d/01proxy
