@@ -1,26 +1,23 @@
-# Custom apt-cacher-ng Docker Image
+# Custom `apt-cacher-ng` Docker Image
 
-This repository is associated with a blog post, for more details please head to the post [here](https://razinj.dev/build-and-run-apt-cacher-ng-proxy-in-docker).
+This repository is associated with a blog post, for more details please head to the post from [here](https://razinj.dev/build-and-run-apt-cacher-ng-proxy-in-docker).
 
-**Dockerfile features** :
+**Dockerfile features**:
 
 - Allows binding of apt-cacher-ng cache directory with a host directory.
-
 - Allows SSL/TLS proxying _(Keep in mind that this will not cache secured traffic because its encrypted)_.
-
----
 
 ## **Server setup**
 
 ### **Docker**
 
-- Build server image :
+- Build server image
 
 ```bash
 docker build -t custom-apt-cacher-ng .
 ```
 
-- Run a container based on the image built :
+- Run a container based on the image built
 
 ```bash
 docker run -d \
@@ -30,7 +27,7 @@ docker run -d \
     custom-apt-cacher-ng
 ```
 
-- Check logs (`ctrl + c` to exit) :
+- Check logs (`ctrl + c` to exit)
 
 ```bash
 docker logs -f apt-cacher-ng
@@ -38,25 +35,23 @@ docker logs -f apt-cacher-ng
 
 ### **Docker Compose (recommended)**
 
-- Build server image :
+- Build server image
 
 ```bash
 docker-compose build
 ```
 
-- Run a container based on the image built :
+- Run a container based on the image we just built
 
 ```bash
 docker-compose up -d
 ```
 
-- Check logs (use `ctrl + c` to exit) :
+- Check logs (use `ctrl + c` to exit)
 
 ```bash
-docker-compose logs -f # Or docker logs -f apt-cacher-ng
+docker-compose logs -f
 ```
-
----
 
 ## Client config
 
@@ -81,4 +76,19 @@ sudo apt-get clean
 sudo apt-get update
 ```
 
-And voila, You have you own apt-cacher-ng that will proxy all of your machines requests to APT repos.
+Let's verify that the setup is working via a simple sudo apt-get update, then head to `http://localhost:3142/acng-report.html` and we should see some content being downloaded and cached for the next requests.
+
+We just set up the apt proxy using either Docker or Docker Compose with ease and we tested the setup using the local host.
+
+---
+
+Consider buying us a coffee ❤️
+<div style="text-align: center">
+  <a href="https://www.buymeacoffee.com/razinj.dev" target="_blank">
+    <img
+      src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+      alt="Buy Us A Coffee"
+      style="height: 60px !important; width: 217px !important"
+    />
+  </a>
+</div>
