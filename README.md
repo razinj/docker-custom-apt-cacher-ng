@@ -1,6 +1,6 @@
 # Custom `apt-cacher-ng` Docker Image
 
-This repository is associated with a blog post, for more details please head to the post from [here](https://razinj.dev/build-and-run-apt-cacher-ng-proxy-in-docker).
+This repository is associated with a blog post, for more details please head to the post from [here](https://short.razinj.com/uV0JRD).
 
 **Dockerfile features**:
 
